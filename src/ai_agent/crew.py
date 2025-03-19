@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from crewai import LLM, Agent, Crew, Process, Task
-import PyPDF2
+import PyPDF2 # type: ignore
 import json
 import logging
 from pydantic import BaseModel, Field
@@ -55,7 +55,7 @@ quiz_agent = Agent(
 quiz_task = Task(
     description=(
         "Analyze the following PDF content and generate a multiple-choice quiz: {pdf_content}. "
-        "Create 2-5 questions, each with:\n"
+        "Create as questions as possible, each with:\n"
         "1. A clear, concise question.\n"
         "2. Four distinct answer options (one correct, three plausible distractors).\n"
         "3. A correct answer.\n"
@@ -134,4 +134,4 @@ async def generate_quiz(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run("crew:app", host="0.0.0.0", port=8000, reload=True)
