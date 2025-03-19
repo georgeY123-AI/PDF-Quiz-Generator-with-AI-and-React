@@ -1,38 +1,140 @@
+body {
+  background: #ffffff;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
 .App {
   text-align: center;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #ff5733;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pdf-uploader {
+  margin: 30px 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pdf-uploader h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.upload-button {
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(45deg, #ff5733, #ff8c33);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 87, 33, 0.3);
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  background: linear-gradient(45deg, #ff8c33, #ff5733);
+  box-shadow: 0 6px 20px rgba(255, 87, 33, 0.5);
+}
+
+.upload-button input {
+  display: none;
+}
+
+.quiz-display h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #ff5733;
+}
+
+.question-card {
+  background: #f9f9f9;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.question-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.question-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.option {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 12px 0;
+  padding: 12px 15px;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  border: 2px solid #ddd;
+  transition: all 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.option:hover {
+  border-color: #ff5733;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.option.selected {
+  background: #ff5733;
+  color: #fff;
+  border-color: #ff5733;
+  box-shadow: 0 4px 10px rgba(255, 87, 33, 0.3);
+}
+
+.option input {
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.option span {
+  flex-grow: 1;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f0f0;
+  border-radius: 10px;
+}
+
+.correct {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.incorrect {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.submit-button {
+  margin-top: 25px;
+  padding: 12px 35px;
+  background: linear-gradient(45deg, #ff5733, #ff8c33);
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 87, 33, 0.3);
+  transition: all 0.3s ease;
 }
