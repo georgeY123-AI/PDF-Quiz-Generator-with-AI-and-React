@@ -32,11 +32,11 @@ class QuizQuestion(BaseModel):
 class QuizOutput(BaseModel):
     questions: List[QuizQuestion] = Field(..., description="List of quiz questions")
 
-# Load API key for Gemini
-google_api_key = os.getenv("GEMINI_API_KEY")
-if not google_api_key:
-    raise ValueError("GEMINI_API_KEY environment variable not set.")
-llm = LLM(model="gemini/gemini-2.0-flash", temperature=0, api_key=google_api_key)
+# Load API key from environment variable
+api_key = os.getenv("API_KEY")
+if not api_key:
+    raise ValueError("API_KEY environment variable not set.")
+llm = LLM(model="gemini/gemini-2.0-flash", temperature=0, api_key=api_key)
 
 # Define Quiz Generator Agent
 quiz_agent = Agent(
